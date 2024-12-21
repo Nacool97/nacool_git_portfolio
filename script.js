@@ -112,20 +112,20 @@ function waitAndResponce(inputText) {
                     My name is Nakul Satish Kulkarni,<br> \
                     And currently I am working at PromptCloud Technologies as Software Engineer Platform.🧑🏾‍💻<br> \
                     I am eager to explore potential career opportunities and would be delighted to discuss any available positions within your organization<br> \
-                    <br> Send 'help' to know more about me.<br>");
+                    <br> Send 'Help' to know more about me.<br>");
             }, 950);
             todaysDate();
             playSound();
             break;
         case "help":
             sendTextMessage("<span class='sk'>Send the following keywords if you want to know more about me ...<br> \
-                e.g\
-                <br> 'skills' - To know my skills \
-                <br> 'resume' - To get my resume <br> \
-                'education' - To get my education details <br> \
-                'contact' - To get my connect details <br> \
-                'experience' - To get details of about my work experience <br> \
-                'clear' - To clear the chat window <br>" );
+                e.g <br>\
+                'Skills' - To know my skills <br>\
+                'Resume' - To get my resume <br> \
+                'Education' - To get my education details <br> \
+                'Contact' - To get my connect details <br> \
+                'Experience' - To get details of about my work experience <br> \
+                'Clear' - To clear the chat window <br>" );
             break;
         case "resume":
             sendTextMessage(resumeString);
@@ -140,7 +140,7 @@ function waitAndResponce(inputText) {
             Problem-Solving: Experience in debugging, optimizing scripts, and addressing production issues. <br> \
             Infrastructure Optimization: Scaling systems to handle millions of requests and reducing costs effectively. <br> \
             Unit Testing & Code Review: Ensuring quality in deliverables. <br> \
-            <br> Send 'help' to know more about me.<br>"
+            <br> Send 'Help' to know more about me.<br>"
             setTimeout(() => {
                 sendTextMessage(skills);
             }, 500);
@@ -165,7 +165,7 @@ function waitAndResponce(inputText) {
             St.Ursula High School <br>\
             <b>79.64%</b> <br>\
             Passed out: Mar 2012 <br>\
-            <br> Send 'help' to know more about me.<br>";
+            <br> Send 'Help' to know more about me.<br>";
             setTimeout(() => {
                 sendTextMessage(education);
             }, 500);
@@ -190,7 +190,7 @@ function waitAndResponce(inputText) {
             <li>Designed and implemented infrastructure capable of handling millions of requests per month, significantly improving system reliability and reducing infrastructure costs. </li> \
             <li>Developed tools and automation frameworks to enhance platform efficiency, streamlining workflows and reducing manual effort. </li> \
             <li>Created and delivered labelled datasets for ML models, enabling accurate and robust machine learning development.</li>\
-            </ol></div><br><br> Send 'help' to know more about me"
+            </ol></div><br><br> Send 'Help' to know more about me"
             setTimeout(() => {
                 sendTextMessage(skills);
             }, 500);
@@ -202,7 +202,7 @@ function waitAndResponce(inputText) {
             <li>Solved Captchas efficiently using automated solutions to enable uninterrupted data extraction.</li>\
             <li>Utilised Regex and parses for accurate data parsing and transformation.</li>\
             <li>Collaborated on coding, unit testing, and system reviews to maintain high-quality standards and optimise reliability.</li>\
-            </ol></div><br><br> Send 'help' to know more about me";
+            </ol></div><br><br> Send 'Help' to know more about me";
             setTimeout(() => {
                 sendTextMessage(skills);
             }, 500);
@@ -213,7 +213,7 @@ function waitAndResponce(inputText) {
             <li>Solved complex Captchas to ensure seamless and accurate data retrieval, overcoming website challenges.</li>\
             <li>Resolved production issues promptly to maintain system uptime and reliability.</li>\
             <li>Maintained data quality standards by implementing checks and optimising extraction pipelines for accuracy and consistency.</li>\
-            </ol></div><br><br> Send 'help' to know more about me"
+            </ol></div><br><br> Send 'Help' to know more about me"
             setTimeout(() => {
                 sendTextMessage(skills);
             }, 500);
@@ -226,7 +226,7 @@ function waitAndResponce(inputText) {
             <li>Created WSDL and XSD files for efficient development and integration.</li>\
             <li>Utilized XQuery for seamless data transformation across systems.</li>\
             <li>Worked extensively with databases and SOA adapters to streamline data flow and system connectivity.</li>\
-            </ol></div><br><br> Send 'help' to know more about me"
+            </ol></div><br><br> Send 'Help' to know more about me"
             setTimeout(() => {
                 sendTextMessage(skills);
             }, 500);
@@ -234,7 +234,7 @@ function waitAndResponce(inputText) {
             
         default:
             setTimeout(() => {
-                sendTextMessage("Apologies, I couldn't get you...😢<br>Send 'help' to know more about usage.");
+                sendTextMessage("Apologies, I couldn't get you...😢<br>Send 'Help' to know more about usage.");
             }, 1000);
             break;
     }
