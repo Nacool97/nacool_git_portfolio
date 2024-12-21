@@ -1,6 +1,6 @@
 var audio = new Audio('assets/sentmessage.mp3');
 var contactString = "<div class='social'> <a target='_blank' href='tel:+917350880493'> <div class='socialItem' id='call'><img class='socialItemI' src='images/phone.svg'/><label class='number'>7350880493</label></div> </a> <a href='mailto:nakulsatishkulkarni@gmail.com'> <div class='socialItem'><img class='socialItemI' src='images/gmail.svg' alt=''></div> </a> <a target='_blank' href='https://github.com/Nacool97'> <div class='socialItem'><img class='socialItemI' src='images/github.svg' alt=''></div> </a> <a target='_blank' href='https://wa.me/917350880493'> <div class='socialItem'><img class='socialItemI' src='images/whatsapp.svg' alt=''></div> </a> <a target='_blank' href='https://t.me/alchemist16'> <div class='socialItem'><img class='socialItemI' src='images/telegram.svg' alt=''></div> </a> <a target='_blank' href='https://instagram.com/nacoolkarni'> <div class='socialItem'><img class='socialItemI' src='images/instagram.svg' alt=''> </div> </a> <a href='https://www.linkedin.com/in/nakul-satish-kulkarni/' target='_blank' rel='noopener noreferrer'> <div class='socialItem'><img class='socialItemI' src='images/linkedin.svg' alt=''></div> </a> </div>";
-var resumeString = "<img src='images/resumeThumbnail.png' class='resumeThumbnail'><div class='downloadSpace'><div class='pdfname'><img src='images/pdf.png'><label>Nakul Resume</label></div><a href='assets/Nakul CV Resume.pdf' download='Nakul CV Resume.pdf'><img class='download' src='images/downloadIcon.svg'></a></div>";
+var resumeString = "<img src='images/resumeThumbnail.png' class='resumeThumbnail'><div class='downloadSpace'><div class='pdfname'><img src='images/pdf.png'><label>Nakul Kulkarni's Resume</label></div><a href='assets/NakulSatishKulkarni.pdf' download='Nakul Kulkarni Resume.pdf'><img class='download' src='images/downloadIcon.svg'></a></div>";
 //var addressString = "<div class='mapview'><iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238.63833262443757!2d74.19014864534314!3d16.865338763272877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1a7dcf40f5dd7%3A0xd7b69fe1fcfa9877!2zMTbCsDUxJzU1LjQiTiA3NMKwMTEnMjUuMyJF!5e0!3m2!1sen!2sin!4v1645079906766!5m2!1sen!2sin' class='map'></iframe></div><label class='add'><address>B2 'Asara'<br>Kodoli<br>Kolhapur, Maharashtra, INDIA 416114</address>";
 var experienceString = "<b>Software Engineer Platform</b><br>\
 <span class='italic'>PromptCloud Technologies Pvt. Ltd.</span><br>\
@@ -23,7 +23,6 @@ Jul 2019 to Nov 2021 <br> \
 "
 function startFunction() {
     setLastSeen();
-    todaysDate();
     waitAndResponce("intro");
 }
 
@@ -77,6 +76,11 @@ function sendMsg() {
         return;
     }
     var date = new Date();
+    const formattedTime = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23', // Ensures 24-hour format
+    }).format(date);
     var myLI = document.createElement("li");
     var myDiv = document.createElement("div");
     var greendiv = document.createElement("div");
@@ -84,7 +88,7 @@ function sendMsg() {
     dateLabel.innerText = date.getHours() + ":" + date.getMinutes();
     myDiv.setAttribute("class", "sent");
     greendiv.setAttribute("class", "green");
-    myDiv.innerHTML = "<div class='profile-container'><div class='profile-picture'></div><span class='profile-name'>User </span><span class='profile-label'> &nbsp;• " + date.getHours() + ":" + date.getMinutes() + "</span></div>";
+    myDiv.innerHTML = "<div class='profile-container'><div class='profile-picture'></div><span class='profile-name'>User </span><span class='profile-label'> &nbsp;• " + formattedTime + "</span></div>";
     dateLabel.setAttribute("class", "dateLabel");
     greendiv.innerText = input.value;
     myDiv.appendChild(greendiv);
@@ -104,11 +108,14 @@ function waitAndResponce(inputText) {
     switch (inputText.toLowerCase().trim()) {
         case "intro":
             setTimeout(() => {
-                sendTextMessage("Hi there👋🏻,My name is Nakul Satish Kulkarni,<br> \
-                    And currently I am working at PromptCloud Technologies as Software Engineer Platform. 👨🏻‍💻<br> \
+                sendTextMessage("Hi there👋🏽,<br> \
+                    My name is Nakul Satish Kulkarni,<br> \
+                    And currently I am working at PromptCloud Technologies as Software Engineer Platform.🧑🏾‍💻<br> \
                     I am eager to explore potential career opportunities and would be delighted to discuss any available positions within your organization<br> \
                     <br> Send 'help' to know more about me.<br>");
-            }, 2000);
+            }, 950);
+            todaysDate();
+            playSound();
             break;
         case "help":
             sendTextMessage("<span class='sk'>Send the following keywords if you want to know more about me ...<br> \
@@ -118,14 +125,13 @@ function waitAndResponce(inputText) {
                 'education' - To get my education details <br> \
                 'contact' - To get my connect details <br> \
                 'experience' - To get details of about my work experience <br> \
-                'clear' - To clear the chat window <br> \
-                'about' - To know about this site");
+                'clear' - To clear the chat window <br>" );
             break;
         case "resume":
             sendTextMessage(resumeString);
             break;
         case "skills":
-            var skills = " I am currently working at PromptCloud Technologies as Software Engineer Platform.<br>Here are skills.<br><br> \
+            var skills = " I am currently working at PromptCloud Technologies as Software Engineer Platform.<br><i>Here are skills that I use on daily basis.</i><br><br> \
             Programming Languages: Python, Ruby, SQL, Shell Scripting.<br> \
             Web Scraping: Expertise in extracting data using BeautifulSoup, Selenium, Playwright, and Puppeteer. <br> \
             Frameworks & Tools: Flask, FastAPI, Resque, Docker, Airflow, Jenkins. <br> \
@@ -134,8 +140,10 @@ function waitAndResponce(inputText) {
             Problem-Solving: Experience in debugging, optimizing scripts, and addressing production issues. <br> \
             Infrastructure Optimization: Scaling systems to handle millions of requests and reducing costs effectively. <br> \
             Unit Testing & Code Review: Ensuring quality in deliverables. <br> \
-            <<br> Send 'help' to know more about me.<br>"
-            sendTextMessage(skills);
+            <br> Send 'help' to know more about me.<br>"
+            setTimeout(() => {
+                sendTextMessage(skills);
+            }, 500);
             break;
 
         case "education":
@@ -158,23 +166,21 @@ function waitAndResponce(inputText) {
             <b>79.64%</b> <br>\
             Passed out: Mar 2012 <br>\
             <br> Send 'help' to know more about me.<br>";
-            sendTextMessage(education);
+            setTimeout(() => {
+                sendTextMessage(education);
+            }, 500);
             break;
 
         case ("exp" || "experience"):
-            sendTextMessage(experienceString);
+            setTimeout(() => {
+                sendTextMessage(experienceString);
+            }, 500);
             break;
         case "clear":
             clearChat();
             break;
         case "contact":
             sendTextMessage(contactString);
-            break;
-        case "projects":
-            sendTextMessage("You want to check my projects? Then just jump into my Github Account.<br><br><div class='social'><a target='_blank' href='https://github.com/Nacool97'> <div class='socialItem'><img class='socialItemI' src='images/github.svg' alt=''></div> </a></div>");
-            break;
-        case "new":
-            sendTextMessage(addressString);
             break;
         case "software_engineer_platform":
             var skills = "<div class='grey'> <ol> <b> Deliveriables for Software Engineer Platform </b> \
@@ -185,7 +191,9 @@ function waitAndResponce(inputText) {
             <li>Developed tools and automation frameworks to enhance platform efficiency, streamlining workflows and reducing manual effort. </li> \
             <li>Created and delivered labelled datasets for ML models, enabling accurate and robust machine learning development.</li>\
             </ol></div><br><br> Send 'help' to know more about me"
-            sendTextMessage(skills);
+            setTimeout(() => {
+                sendTextMessage(skills);
+            }, 500);
             break
         case "software_engineer_developer":
             var skills = "<div class='grey'> <ol> <b> Deliveriables for Software Engineer Developer </b> \
@@ -195,7 +203,9 @@ function waitAndResponce(inputText) {
             <li>Utilised Regex and parses for accurate data parsing and transformation.</li>\
             <li>Collaborated on coding, unit testing, and system reviews to maintain high-quality standards and optimise reliability.</li>\
             </ol></div><br><br> Send 'help' to know more about me";
-            sendTextMessage(skills);
+            setTimeout(() => {
+                sendTextMessage(skills);
+            }, 500);
             break
         case "senior_data_engineer":
             var skills = "<div class='grey'> <ol> <b > Deliveriables for Senior Data Engineer </b> \
@@ -204,7 +214,9 @@ function waitAndResponce(inputText) {
             <li>Resolved production issues promptly to maintain system uptime and reliability.</li>\
             <li>Maintained data quality standards by implementing checks and optimising extraction pipelines for accuracy and consistency.</li>\
             </ol></div><br><br> Send 'help' to know more about me"
-            sendTextMessage(skills);
+            setTimeout(() => {
+                sendTextMessage(skills);
+            }, 500);
             break
         case "programmar_analyst":
             var skills = "<div class='grey'> <ol> <b > Deliveriables for Programmar Analyst </b> \
@@ -215,13 +227,15 @@ function waitAndResponce(inputText) {
             <li>Utilized XQuery for seamless data transformation across systems.</li>\
             <li>Worked extensively with databases and SOA adapters to streamline data flow and system connectivity.</li>\
             </ol></div><br><br> Send 'help' to know more about me"
-            sendTextMessage(skills);
+            setTimeout(() => {
+                sendTextMessage(skills);
+            }, 500);
             break
             
         default:
             setTimeout(() => {
-                sendTextMessage("Hey I couldn't catch you...😢<br>Send 'help' to know more about usage.");
-            }, 2000);
+                sendTextMessage("Apologies, I couldn't get you...😢<br>Send 'help' to know more about usage.");
+            }, 1000);
             break;
     }
 
@@ -239,6 +253,11 @@ function clearChat() {
 function sendTextMessage(textToSend) {
     setTimeout(setLastSeen, 1000);
     var date = new Date();
+    const formattedTime = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23', // Ensures 24-hour format
+    }).format(date);
     var myLI = document.createElement("li");
     var myDiv = document.createElement("div");
     var profilepic = document.createElement("div")
@@ -252,13 +271,11 @@ function sendTextMessage(textToSend) {
 
     greendiv.setAttribute("class", "grey");
 
-    myDiv.innerHTML = "<div class='profile-container'><div class='profile-picture'></div><span class='profile-name'>Nakul Kulkarni </span><span class='profile-label'> &nbsp;• " + date.getHours() + ":" + date.getMinutes() + "</span></div>";
-    //profilename.innerHTML = "Nakul Kulkarni • " + date.getHours() + ":" + date.getMinutes();
+    myDiv.innerHTML = "<div class='profile-container'><div class='profile-picture'></div><span class='profile-name'>Nakul Kulkarni </span><span class='profile-label'> &nbsp;• " + formattedTime + "</span></div>";
     greendiv.innerHTML = textToSend;
-    //myDiv.appendChild(profilepic)
     myDiv.appendChild(greendiv);
     myLI.appendChild(myDiv);
-    //greendiv.appendChild(dateLabel);
+
     document.getElementById("listUL").appendChild(myLI);
     var s = document.getElementById("chatting");
     s.scrollTop = s.scrollHeight;
