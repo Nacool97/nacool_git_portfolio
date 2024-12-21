@@ -171,7 +171,7 @@ function waitAndResponce(inputText) {
             }, 500);
             break;
 
-        case ("exp" || "experience"):
+        case "experience":
             setTimeout(() => {
                 sendTextMessage(experienceString);
             }, 500);
